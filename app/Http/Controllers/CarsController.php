@@ -13,9 +13,16 @@ class CarsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    const defaultTake = 10;
+    const defaultSkip = '';
+
+    public function index(Request $request)
     {
-        return Car::all();
+        $take = $request->has('take') ? $request->get('take') : self::defaultTake;
+        $skip = $request->has('skip') ? $request->get('skip') : self::defaultSkip;
+
+        return Car::skip($skip)->take($take)->get();
     }
 
     /**
