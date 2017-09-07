@@ -24,13 +24,13 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-            'mark' => 'required',
-            'model' => 'required',
+            'mark' => 'required|min:2',
+            'model' => 'required|min:2',
             'year' => 'required',
-            'maxSpeed' => 'required',
+            'maxSpeed' => 'between:20,300',
             'isAutomatic' => 'required',
             'engine' => 'required',
-            'numberOfDoors' => 'required'
+            'numberOfDoors' => 'required|between:2,5'
         ];
     }
 }
