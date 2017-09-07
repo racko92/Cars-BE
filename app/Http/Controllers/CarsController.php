@@ -19,10 +19,7 @@ class CarsController extends Controller
 
     public function index(Request $request)
     {
-        $take = $request->has('take') ? $request->get('take') : self::defaultTake;
-        $skip = $request->has('skip') ? $request->get('skip') : self::defaultSkip;
-
-        return Car::skip($skip)->take($take)->get();
+        return Car::skip(request('skip', self::defaultSkip))->take(request('take', self::defaultTake))->get();
     }
 
     /**

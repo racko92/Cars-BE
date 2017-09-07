@@ -28,7 +28,7 @@ class CarRequest extends FormRequest
             'model' => 'required|min:2',
             'year' => 'required',
             'maxSpeed' => 'between:20,300',
-            'isAutomatic' => 'required',
+            'isAutomatic' => 'required|boolean',
             'engine' => 'required',
             'numberOfDoors' => 'required|between:2,5'
         ];
